@@ -11,6 +11,7 @@ import {Text, View} from 'react-native';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import Header from './src/components/Header';
 
 
 class App extends Component {
@@ -31,7 +32,8 @@ class App extends Component {
   render() {
     return (
       <View>
-        <Text>Kimlik Doğrulama uygulaması Login sayfası </Text>
+        <Header headerText={'Giriş Ekranı'}></Header>
+        <Text style={{marginTop: 5}}>Kimlik Doğrulama uygulaması Login sayfası </Text>
       </View>
     );
 
