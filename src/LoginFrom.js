@@ -2,34 +2,35 @@ import React, {Component} from 'react';
 import {View, TextInput} from 'react-native';
 import Button from './components/Button';
 import Card from './components/Card';
+import CardSection from './components/CardSection';
 
 class LoginForm extends Component {
     state = {email: '', password: ''};
     render(){
-        const { subContainerStyle, inputStyle} = styles;
+        const {inputStyle} = styles;
         return(
             <Card>
-                <View style={subContainerStyle}>
+                <CardSection>
                     <TextInput 
                     placeholder='Email'
                     style={inputStyle}
                     value={this.state.email}
                     onChangeText={email => this.setState({email})} // ikinci kullanımı {text => this.setState({email: text})}
                     /> 
-                </View>
+                </CardSection>
 
-                <View style={subContainerStyle}>
+                <CardSection>
                     <TextInput 
                     placeholder='Password'
                     style={inputStyle}
                     value={this.state.password}
                     onChangeText={password => this.setState({password})} // ikinci kullanımı {text => this.setState({email: text})}
                     /> 
-                </View>
+                </CardSection>
 
-                <View style={subContainerStyle}>
+                <CardSection>
                     <Button onPress={()=> console.log('tıklandı')}> Login </Button>
-                </View>
+                </CardSection>
             </Card> 
         );
     }
@@ -37,15 +38,6 @@ class LoginForm extends Component {
 }
 const styles = {
     
-    subContainerStyle: {
-        borderBottomWidth: 1,
-        padding: 5,
-        backgraoundColor: '#fff',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-        borderColor: '#ddd',
-        position: 'relative'
-    },
     inputStyle: {
         paddingRight: 5,
         paddingLeft: 5,
