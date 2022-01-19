@@ -12,6 +12,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Header from './src/components/Header';
+import LoginForm from './src/LoginFrom';
 
 
 class App extends Component {
@@ -33,7 +34,7 @@ class App extends Component {
     return (
       <View>
         <Header headerText={'Giriş Ekranı'}></Header>
-        <Text style={{marginTop: 5}}>Kimlik Doğrulama uygulaması Login sayfası </Text>
+        <LoginForm />
       </View>
     );
 
