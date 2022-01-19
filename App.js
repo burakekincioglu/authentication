@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <View>
-        <Header headerText={'Giriş Ekranı'}></Header>
+        <Header headerText={'Login Panel'}></Header>
         <LoginForm />
       </View>
     );
