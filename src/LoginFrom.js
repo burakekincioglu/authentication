@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, TextInput} from 'react-native';
+import {Alert,TextInput} from 'react-native';
 import firebase from 'firebase/compat';
 import Button from './components/Button';
 import Card from './components/Card';
@@ -12,13 +12,23 @@ class LoginForm extends Component {
         this.setState({loading: true});
         console.log(this.state.loading);
         const {email, password} = this.state;
-        firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(this.loginSuccess.bind(this))
-        .catch(()=>{
-            firebase.auth().createUserWithEmailAndPassword(email, password)
+        if(email === '' || password === '')
+        {
+            Alert.alert('Message', 'Email and Password should not be empty.', 
+            [ {text: 'Okay', onPress: ()=> null} ]);
+            this.setState({loading: false});
+        }
+        else
+        {
+            firebase.auth().signInWithEmailAndPassword(email, password)
             .then(this.loginSuccess.bind(this))
-            .catch(this.loginFail.bind(this));
-        });
+            .catch(()=>{
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then(this.loginSuccess.bind(this))
+                .catch(this.loginFail.bind(this));
+            });
+        }
+        
     }
     loginSuccess() {
         console.log('login başarılı');
@@ -26,7 +36,9 @@ class LoginForm extends Component {
     }
     loginFail()
     {
-        console.log('login fail');
+        Alert.alert('Message', 'Email or Password is wrong.', 
+            [ {text: 'Okay', onPress: ()=> null} ]);
+        this.setState({loading: false});
     }
 
     renderButton()
