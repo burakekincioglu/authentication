@@ -21,7 +21,7 @@ class App extends Component {
 
   state = {loggedIn: null};
 
-  UNSAFE_componentWillMount() {
+  UNSAFE_componentWillMount() { // uygulama açılır açılmaz çalışan metod
       firebase.initializeApp(
         {// bu configurasyon web projesi oluşturulurken otomatik verildi.
           apiKey: "AIzaSyBWpYcoUOR1GdQ7eGcrXkZW5VqgULLVQ4U", 
@@ -60,7 +60,6 @@ class App extends Component {
           <LoginForm />
         );
         
-    
       default:
         return(
           <View>

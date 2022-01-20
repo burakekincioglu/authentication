@@ -2,9 +2,9 @@
  import {View} from 'react-native'
 
 const Card = (props) => {
-    return (
+    return ( //   {props.children} burada ne yapıyor ? 
         <View style={styles.containerStyle}>
-            {props.children}
+            {props.children} 
         </View>
     );
 };
