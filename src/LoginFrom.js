@@ -50,7 +50,8 @@ class LoginForm extends Component {
                 </CardSection>
 
                 <CardSection>
-                    <TextInput 
+                    <TextInput
+                    secureTextEntry 
                     placeholder='Password'
                     style={inputStyle}
                     value={this.state.password}
